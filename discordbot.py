@@ -1,20 +1,22 @@
+import discord
+import random
+
 from discord.ext import commands
-from os import getenv
-import traceback
 
-bot = commands.Bot(command_prefix='/')
+client = commands.Bot(command_prefix = '!')
 
 
-@bot.event
-async def on_command_error(ctx, error):
-    orig_error = getattr(error, "original", error)
-    error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
-    await ctx.send(error_msg)
 
 
-@bot.command()
-async def ping(ctx):
-    await ctx.send('pong')
+@client.event
+async def on_ready():
+    print("準備OK")
+    print("---------------------------")
+
+@client.command()
+async def nano_me(ctx):
+    await ctx.send('強化完了！力を見せてやれ！')
+
 
 
 token = getenv('DISCORD_BOT_TOKEN')
