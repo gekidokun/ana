@@ -19,6 +19,5 @@ async def nano_me(ctx):
     await ctx.send('強化完了！力を見せてやれ！')
 
 
-
 token = getenv('DISCORD_BOT_TOKEN')
 client.run(token)
