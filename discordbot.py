@@ -7,7 +7,7 @@ from discord.ext import commands
 client = commands.Bot(command_prefix = '!')
 
 
-@bot.event
+@client.event
 async def on_command_error(ctx, error):
     orig_error = getattr(error, "original", error)
     error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
@@ -21,4 +21,4 @@ async def nano_me(ctx):
 
 
 token = getenv('DISCORD_BOT_TOKEN')
-bot.run(token)
+client.run(token)
